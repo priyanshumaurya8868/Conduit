@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container_rv"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_5sdp"
+    android:padding="@dimen/_10sdp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/feed_avatar_image_view"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="@dimen/_5sdp"
+        android:contentDescription="@string/app_name"
+        tools:tint="@color/conduit_grey" />
+
+    <TextView
+        android:id="@+id/feed_item_author_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_toEndOf="@id/feed_avatar_image_view"
+        android:ellipsize="end"
+        android:fontFamily="@font/titillium_web_light"
+        android:maxLines="1"
+        android:padding="@dimen/_2sdp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:textColor="@color/conduit_green"
+        android:textStyle="bold"
+        tools:text="Alan Walker" />
+
+    <TextView
+        android:id="@+id/feed_item_date_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/feed_item_author_tv"
+        android:layout_marginTop="-5sp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_toEndOf="@+id/feed_avatar_image_view"
+        android:fontFamily="@font/titillium_web_extralight"
+        android:textSize="@dimen/_10ssp"
+        android:textStyle="bold"
+        tools:text="30 April 2021" />
+
+    <TextView
+        android:id="@+id/feed_item_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/feed_item_date_tv"
+        android:layout_alignStart="@+id/feed_avatar_image_view"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:ellipsize="end"
+        android:fontFamily="@font/source_sans_pro_semibold"
+        android:maxLines="1"
+        android:padding="@dimen/_5sdp"
+
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold"
+        tools:text="This is title" />
+
+    <TextView
+        android:id="@+id/feed_item_description_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/feed_item_title_tv"
+        android:layout_alignStart="@+id/feed_item_title_tv"
+        android:layout_marginTop="@dimen/_minus10sdp"
+        android:ellipsize="end"
+        android:fontFamily="@font/source_sans_pro_light"
+        android:maxLines="2"
+        android:padding="@dimen/_5sdp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="@dimen/_13ssp"
+        tools:text="Material Theming is a way to customize Material Components to align with your brand. A Material theme includes color, typography and shape parameters which you can adjust to get near-infinite variations of the components – all while maintaining their core anatomy and usability." />
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/feed_item_body_tv"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_below="@+id/feed_item_description_tv"-->
+    <!--        android:layout_alignStart="@+id/feed_item_description_tv"-->
+    <!--        android:ellipsize="end"-->
+    <!--        android:fontFamily="@font/titillium_web_light"-->
+    <!--        android:maxLines="1"-->
+    <!--        android:layout_marginTop="@dimen/_minus8sdp"-->
+    <!--        android:padding="@dimen/_5sdp"-->
+    <!--        android:textColor="@color/conduit_grey"-->
+    <!--        android:textSize="@dimen/_11ssp"-->
+    <!--        android:textAppearance="@style/TextAppearance.AppCompat.Caption"-->
+    <!--        tools:text="Material Theming is a way to customize Material Components to align with your brand. A Material theme includes color, typography and shape parameters which you can adjust to get near-infinite variations of the components – all while maintaining their core anatomy and usability." />-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/feed_item_description_tv"
+        android:layout_alignStart="@+id/feed_item_description_tv"
+        android:layout_alignParentEnd="true"
+        android:fontFamily="@font/source_sans_pro_light"
+        android:paddingStart="@dimen/_5sdp"
+        android:text="@string/read_more"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+
+    <LinearLayout
+        android:id="@+id/likeContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="@dimen/_2sdp"
+        android:paddingBottom="@dimen/_2sdp"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/green_strock_transparent_bc">
+
+        <ImageView
+            android:id="@+id/ivlikeHeartIcon"
+            android:layout_width="@dimen/_12sdp"
+            android:layout_height="@dimen/_12sdp"
+            android:src="@drawable/ic_heart"
+            app:tint="@color/conduit_green"
+            android:layout_margin="@dimen/_2sdp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_likecount"
+            tools:text="1"
+            android:padding="@dimen/_2sdp"
+            android:fontFamily="@font/source_sans_pro"
+            android:textSize="@dimen/_11sdp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline1"
+            android:textColor="@color/conduit_green"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

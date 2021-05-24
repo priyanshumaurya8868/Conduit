@@ -1,0 +1,29 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+    id 'kotlin-kapt'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    //lib for making api calls
+    api "com.squareup.retrofit2:retrofit:$Retrofit_version"
+    //retrofit or moshi  ko connect krne ka lib
+    implementation "com.squareup.retrofit2:converter-moshi:$Retrofit_version"
+    //lib  for jason to kotlin
+    implementation "com.squareup.moshi:moshi:$Moshi_version"
+    // codgen, does it at compile time or does it at runtime
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$Moshi_version"
+    // for testing
+    testImplementation 'junit:junit:4.13.2'
+    //coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
+
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+
+}

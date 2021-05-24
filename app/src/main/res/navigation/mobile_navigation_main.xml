@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/menu_nav_feed">
+    <fragment
+        android:id="@+id/menu_nav_feed"
+        android:name="com.priyanshumaurya8868.realworld.io.conduit.ui.feeds.GlobalFeed"
+        android:label="@string/menu_global_feed"
+        tools:layout="@layout/global_feed_fragment">
+        <action
+            android:id="@+id/action_global_feed_to_nav_article"
+            app:destination="@id/nav_article"
+            app:popUpToInclusive="true">
+            <argument
+                android:name="@string/arg_article_id"
+                app:argType="string" />
+        </action>
+
+        <action
+            android:id="@+id/action_global_feed_to_nav_write_article"
+            app:destination="@id/nav_write_article"
+            app:popUpToInclusive="true">
+
+        </action>
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/menu_nav_my_feed"
+        android:name="com.priyanshumaurya8868.realworld.io.conduit.ui.feeds.MyFeedFragment"
+        android:label="@string/menu_my_feed"
+        tools:layout="@layout/global_feed_fragment">
+        <action
+            android:id="@+id/action_my_feed_to_nav_article"
+            app:destination="@id/nav_article"
+            app:popUpTo="@id/menu_nav_my_feed">
+            <argument
+                android:name="@string/arg_article_id"
+                app:argType="string" />
+        </action>
+
+        <action
+            android:id="@+id/action_my_feed_to_nav_write_article"
+            app:destination="@id/nav_write_article"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/menu_nav_auth"
+        android:name="com.priyanshumaurya8868.realworld.io.conduit.ui.auth.AuthFragment"
+        android:label="@string/menu_auth"
+        tools:layout="@layout/auth_fragment" />
+
+    <fragment
+        android:id="@+id/menu_nav_settings"
+        android:name="com.priyanshumaurya8868.realworld.io.conduit.ui.settings.SettingsFragment"
+        android:label="@string/menu_auth"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_menu_nav_settings_to_menu_nav_auth"
+            app:destination="@id/menu_nav_auth" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_article"
+        android:name="com.priyanshumaurya8868.realworld.io.conduit.ui.article.ArticleFragment"
+        tools:layout="@layout/article_fragment" >
+        <action
+            android:id="@+id/action_nav_article_to_nav_profile"
+            app:destination="@id/nav_profile"
+            app:popUpTo="@id/nav_article"/>
+        <action
+            android:id="@+id/action_nav_article_to_nav_write_article"
+            app:destination="@id/nav_write_article"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_write_article"
+        android:name="com.priyanshumaurya8868.realworld.io.conduit.ui.article.PublishArticle"
+        android:label="@string/fab_lebel"
+        tools:layout="@layout/write_article" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.priyanshumaurya8868.realworld.io.conduit.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/profile_fragment" >
+
+        <action
+            android:id="@+id/action_nav_profile_to_nav_article"
+            app:destination="@id/nav_article"
+            app:popUpTo="@id/nav_profile"/>
+        <action
+            android:id="@+id/action_nav_profile_to_menu_nav_settings"
+            app:destination="@id/menu_nav_settings"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+
+
+</navigation>

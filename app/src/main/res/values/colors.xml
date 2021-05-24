@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="conduit_green">#5CB85C</color>
+    <color name="conduit_green_darker">#3d8b3d</color>
+    <color name="conduit_grey">#818a91</color>
+    <color name="conduit_lite_grey">#70D1D0D0</color>
+    <color name="intentce_conduit_lite_grey">#D1D0D0</color>
+    <color name="conduit_grey_darker">#484B4E</color>
+    <color name="greenish_white">#EDFAEA</color>
+    <color name="white">#FFFFFF</color>
+    <color name="transparent_white">#1AFFFFFF</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="border_blue">#304FFE</color>
+</resources>

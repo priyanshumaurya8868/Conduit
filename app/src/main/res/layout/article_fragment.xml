@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:background="#000000"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/title_article_preview_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:fontFamily="@font/source_sans_pro"
+                    android:padding="@dimen/_10sdp"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline1"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_30ssp"
+                    tools:text="Title of the Article" />
+
+
+                <LinearLayout
+                    android:id="@+id/layout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/pfp_article_preview"
+                        android:layout_width="@dimen/_32sdp"
+                        android:layout_height="@dimen/_32sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:gravity="center" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_5sdp">
+
+                        <TextView
+                            android:id="@+id/author_article_preview_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/source_sans_pro"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12ssp"
+                            tools:text="username" />
+
+                        <TextView
+                            android:id="@+id/date_article_preview_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_2sdp"
+                            android:fontFamily="@font/source_sans_pro_light"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                            android:textColor="@color/white"
+                            tools:text="4 May 2021" />
+
+                    </LinearLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical">
+
+                        <LinearLayout
+                            android:id="@+id/fav_container"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:background="@drawable/green_strock_transparent_bc"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_5sdp">
+
+                            <ImageView
+                                android:id="@+id/fav_icon"
+                                android:layout_width="@dimen/_10sdp"
+                                android:layout_height="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_1sdp"
+                                android:src="@drawable/ic_heart"
+                                app:tint="@color/conduit_green" />
+
+                            <TextView
+                                android:id="@+id/fav_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="@dimen/_2sdp"
+                                android:paddingEnd="@dimen/_2sdp"
+                                android:text="Favourite"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                                android:textColor="@color/conduit_green" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/follow_container"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:layout_toStartOf="@id/fav_container"
+                            android:background="@drawable/grey_stroc_trans_bc"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_5sdp">
+
+                            <ImageView
+                                android:id="@+id/follow_icon"
+                                android:layout_width="@dimen/_10sdp"
+                                android:layout_height="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_1sdp"
+                                android:src="@drawable/ic_plus"
+                                app:tint="@color/white" />
+
+                            <TextView
+                                android:id="@+id/follow_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="@dimen/_2sdp"
+                                android:paddingEnd="@dimen/_2sdp"
+                                android:text="@string/follow"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                                android:textColor="@color/white" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/update_container"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:layout_toStartOf="@id/fav_container"
+                            android:background="@drawable/grey_stroc_trans_bc"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_5sdp">
+
+                            <ImageView
+                                android:id="@+id/update_icon"
+                                android:layout_width="@dimen/_10sdp"
+                                android:layout_height="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_1sdp"
+                                android:src="@drawable/ic_edit"
+                                app:tint="@color/white" />
+
+                            <TextView
+                                android:id="@+id/update_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="@dimen/_2sdp"
+                                android:paddingEnd="@dimen/_2sdp"
+                                android:text="@string/update_article"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                                android:textColor="@color/white" />
+
+                        </LinearLayout>
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/body_article_preview_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linearLayout"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="@font/source_sans_pro"
+                android:padding="@dimen/_10sdp"
+                android:minLines="15"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                tools:text="In English, both  and are articles, which combine with a noun to form a noun phrase. Articles typically specify the grammatical definiteness of the noun phrase, but in many languages, they carry additional grammatical information such as gender, number, and case. Articles are part of a broader category called determiners, which also include demonstratives, possessive determiners, and quantifiers. In linguistic interlinear glossing, articles are abbreviated as art." />
+
+            <TextView
+                android:id="@+id/tv_cmntsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/body_article_preview_tv"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:fontFamily="@font/source_sans_pro_semibold"
+                android:padding="@dimen/_5sdp"
+                android:text="Comments:-"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4" />
+
+            <LinearLayout
+                android:id="@+id/postComntStuff_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_cmntsTitle"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/grey_stroc_trans_bc"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/et_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/source_sans_pro"
+                    android:hint="@string/comnt_hint"
+                    android:minLines="3"
+                    android:padding="@dimen/_10sdp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    tools:text="this a comment of the post for testing lwts see how long it goes from here" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/conduit_lite_grey"
+                    android:padding="@dimen/_3sdp">
+
+                    <ImageView
+                        android:id="@+id/ivUser_pfp"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_alignParentStart="true"
+                        android:layout_margin="@dimen/_5sdp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_post_cmnt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:fontFamily="@font/source_sans_pro"
+                        android:text="@string/post_cmt"
+                        android:textColor="@color/white"
+                        app:cornerRadius="@dimen/_5sdp" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_comments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/postComntStuff_container"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                tools:listitem="@layout/cmnt_item_view" />
+        </RelativeLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
