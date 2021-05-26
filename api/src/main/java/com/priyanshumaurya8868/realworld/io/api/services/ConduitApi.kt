@@ -42,4 +42,9 @@ interface   ConduitApi {
     suspend fun getProfile(
         @Path("username") username: String
     ): Response<ProfileResponse>
+
+    @PUT("articles/{slug}")
+    suspend fun updateArticle(){
+
+    }
 }

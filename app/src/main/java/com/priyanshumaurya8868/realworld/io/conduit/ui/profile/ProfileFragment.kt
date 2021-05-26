@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.priyanshumaurya8868.realworld.io.api.MyConduitClient
 import com.priyanshumaurya8868.realworld.io.api.model.entites.Profile
+import com.priyanshumaurya8868.realworld.io.conduit.MainActivity
 import com.priyanshumaurya8868.realworld.io.conduit.R
 import com.priyanshumaurya8868.realworld.io.conduit.databinding.ProfileFragmentBinding
 import com.priyanshumaurya8868.realworld.io.conduit.extentions.loadImageInCircleView
@@ -75,6 +76,9 @@ class ProfileFragment : Fragment() {
                     setUpFollowBtnAppearance(!isfollowing)
                 }
             }
+            updateProfileContainer.setOnClickListener {
+                findNavController().navigate(R.id.action_nav_profile_to_menu_nav_settings)
+            }
         }
     }
 
@@ -88,12 +92,12 @@ class ProfileFragment : Fragment() {
                     tvBio.text = profile.bio
                 } else tvBio.visibility = View.GONE
 
-                if (!MyConduitClient.authToken.isNullOrBlank())
+                if (MyConduitClient.authToken.isNullOrBlank())
                     _binding?.followContainer?.visibility = View.GONE
                 else {
                     setUpFollowBtnAppearance(profile.following)
                 }
-     profileViewModel.myProfile.observe({lifecycle}){
+     (activity as MainActivity).authViewModel.user.observe({lifecycle}){
          if (it!=null && it.username == profile.username){
              followContainer.visibility = View.GONE
              updateProfileContainer.visibility = View.VISIBLE

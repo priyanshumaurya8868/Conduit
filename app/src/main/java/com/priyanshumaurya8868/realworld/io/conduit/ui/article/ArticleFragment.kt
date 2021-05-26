@@ -6,13 +6,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.priyanshumaurya8868.realworld.io.api.MyConduitClient
 import com.priyanshumaurya8868.realworld.io.api.model.entites.Comment
 import com.priyanshumaurya8868.realworld.io.api.model.entites.GetArticle
+import com.priyanshumaurya8868.realworld.io.conduit.MainActivity
 import com.priyanshumaurya8868.realworld.io.conduit.R
 import com.priyanshumaurya8868.realworld.io.conduit.databinding.ArticleFragmentBinding
 import com.priyanshumaurya8868.realworld.io.conduit.extentions.loadImageInCircleView
@@ -26,6 +29,7 @@ class ArticleFragment : Fragment() {
     private lateinit var profileViewModel: ProfileViewModel
     private lateinit var articleViewModel: ArticleViewModel
     private var commentsAdapter: CommentsRVAdapter? = null
+    private val tagListAdapter = TagListAdapter()
     private var articleID: String? = null
     private var slug: String? = null
     override fun onCreateView(
@@ -52,26 +56,29 @@ class ArticleFragment : Fragment() {
             it?.let { article ->
                 _binding?.apply {
                     slug = article.slug
-                    slug?.let { setupRV(it) } ?: Log.d("comment", "Slug is null")
+                    setupComntRV(article)
+                    if(article.tagList.isNotEmpty()) setUpTagRv(article)
+                    else tagContainer.visibility = View.GONE
                     initializeChildViews(article)
                     setUpbuttonsAppearance(article.author.following, article.favorited)
                     setUpActionListner(article)
-
                 }
             }
         }
-
     }
 
     private fun btnAbstraction(article: GetArticle) {
-        profileViewModel.myProfile.observe({ lifecycle }){
+        (activity as MainActivity).authViewModel.user.observe({ lifecycle }){
             if (it != null &&
                 article.author.username == it.username){
-              //  _binding?.updateContainer?.visibility = View.VISIBLE  //TODO: implement update article
+               _binding?.updateContainer?.visibility = View.VISIBLE
                 _binding?.followContainer?.visibility = View.GONE
+                _binding?.deleteContainer?.visibility = View.VISIBLE
+
             }else {
-         //       _binding?.updateContainer?.visibility = View.GONE
+               _binding?.updateContainer?.visibility = View.GONE
                 _binding?.followContainer?.visibility = View.VISIBLE
+                _binding?.deleteContainer?.visibility = View.GONE
             }
         }
     }
@@ -79,6 +86,10 @@ class ArticleFragment : Fragment() {
     private fun setUpActionListner(article: GetArticle) {
         btnAbstraction(article)
         _binding?.apply {
+            deleteContainer.setOnClickListener {
+                articleViewModel.deleteArticle(article.slug)
+                findNavController().popBackStack()
+            }
             MyConduitClient.authToken?.let{
                 followContainer.setOnClickListener {
                     if (isFollowing) {
@@ -110,8 +121,15 @@ class ArticleFragment : Fragment() {
             btnPostCmnt.setOnClickListener {
                 postComment()
             }
+
+            updateContainer.setOnClickListener{
+                val  bundle = bundleOf(resources.getString(R.string.arg_article_key) to article)
+                findNavController().navigate(R.id.action_nav_article_to_nav_write_article,bundle)
+            }
         }
     }
+
+
 
     private fun initializeChildViews(article: GetArticle) {
         _binding?.apply {
@@ -150,15 +168,24 @@ class ArticleFragment : Fragment() {
         }
     }
 
-    private fun setupRV(slug: String) {
+    private fun setupComntRV(article: GetArticle) {
         Log.d("comment", "rv setup")
-        articleViewModel.getComments(slug)
+        articleViewModel.getComments(article.slug)
         articleViewModel.cmnts.observe({ lifecycle }) { commentsAdapter?.submitList(it) }
         _binding?.rvComments?.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = commentsAdapter
+            adapter = commentsAdapter?.also { it ->
+                it.deleteComment{ id->
+                    articleViewModel.deleteComment(article.slug,id)
+                    articleViewModel.getComments(slug!!)
+                }
+            }
+            (activity as MainActivity).authViewModel.user.observe({ lifecycle }){
+                commentsAdapter?.authorName = it?.username
+            }
         }
     }
+
 
     private fun postComment() {
         slug?.let {
@@ -181,9 +208,20 @@ class ArticleFragment : Fragment() {
             })
     }
 
+    private fun setUpTagRv(article : GetArticle){
+        _binding?.apply {
+            tagContainer.visibility  = View.VISIBLE
+            rvTag.layoutManager = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
+            rvTag.adapter = tagListAdapter
+            tagListAdapter.submitList(article.tagList)
+        }
+    }
+
+
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
     }
+
 }
-//TODO : Tags preview via RV

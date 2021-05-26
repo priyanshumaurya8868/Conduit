@@ -25,6 +25,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:fontFamily="@font/source_sans_pro"
                 android:padding="@dimen/_10sdp"
                 android:text="@string/your_settings"
@@ -47,6 +48,7 @@
                     android:fontFamily="@font/source_sans_pro"
                     android:hint="@string/url_of_profile_picture"
                     android:inputType="textUri"
+                    android:background="@color/transparent"
                     android:textSize="@dimen/_15ssp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -57,7 +59,8 @@
                 app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
                 app:boxCornerRadiusBottomStart="@dimen/_5sdp"
                 app:boxCornerRadiusTopEnd="@dimen/_5sdp"
-                app:boxCornerRadiusTopStart="@dimen/_5sdp">
+                app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                app:boxStrokeColor="@color/conduit_grey_darker">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/update_username_et"
@@ -66,6 +69,7 @@
                     android:fontFamily="@font/source_sans_pro"
                     android:hint="@string/username"
                     android:inputType="textPersonName"
+                    android:background="@drawable/transparent_bc"
                     android:textSize="@dimen/_15ssp"
                     tools:text="username" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -78,7 +82,8 @@
                 app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
                 app:boxCornerRadiusBottomStart="@dimen/_5sdp"
                 app:boxCornerRadiusTopEnd="@dimen/_5sdp"
-                app:boxCornerRadiusTopStart="@dimen/_5sdp">
+                app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                app:boxStrokeColor="@color/conduit_grey_darker">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/update_bio_et"
@@ -88,6 +93,7 @@
                     android:gravity="top"
                     android:hint="@string/short_bio_about_you"
                     android:inputType="textMultiLine"
+                    android:background="@drawable/transparent_bc"
                     android:minHeight="@dimen/_100sdp"
                     android:textSize="@dimen/_15ssp"
                     tools:text="this demo walla bio" />
@@ -100,7 +106,8 @@
                 app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
                 app:boxCornerRadiusBottomStart="@dimen/_5sdp"
                 app:boxCornerRadiusTopEnd="@dimen/_5sdp"
-                app:boxCornerRadiusTopStart="@dimen/_5sdp">
+                app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                app:boxStrokeColor="@color/conduit_grey_darker">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/update_email_et"
@@ -109,6 +116,7 @@
                     android:fontFamily="@font/source_sans_pro"
                     android:hint="@string/email"
                     android:inputType="textEmailAddress"
+                    android:background="@drawable/transparent_bc"
                     android:textSize="@dimen/_15ssp"
                     tools:text="something123@email.com" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -120,7 +128,8 @@
                 app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
                 app:boxCornerRadiusBottomStart="@dimen/_5sdp"
                 app:boxCornerRadiusTopEnd="@dimen/_5sdp"
-                app:boxCornerRadiusTopStart="@dimen/_5sdp">
+                app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                app:boxStrokeColor="@color/conduit_grey_darker">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/update_password_et"
@@ -129,6 +138,7 @@
                     android:fontFamily="@font/source_sans_pro"
                     android:hint="New Password"
                     android:inputType="text"
+                    android:background="@drawable/transparent_bc"
                     android:textSize="@dimen/_15ssp"
                     tools:text="newpassword" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -141,7 +151,8 @@
                 android:elevation="@dimen/_5sdp"
                 android:fontFamily="@font/source_sans_pro_semibold"
                 android:padding="@dimen/_10sdp"
-                android:text="update settings"
+                android:textAllCaps="false"
+                android:text="Update Settings"
                 android:textStyle="bold"
                 app:elevation="@dimen/_10sdp" />
         </androidx.appcompat.widget.LinearLayoutCompat>

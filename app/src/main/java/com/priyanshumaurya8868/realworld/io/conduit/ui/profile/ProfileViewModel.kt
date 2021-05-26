@@ -15,11 +15,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ProfileViewModel : ViewModel(){
-   private val _myProfile = MutableLiveData<User?>()
-           val myProfile : LiveData<User?> = _myProfile
-    init {
-        getMyProfile()
-    }
     private val  _user = MutableLiveData<Profile>()
     val user : LiveData<Profile> = _user
 
@@ -52,14 +47,5 @@ class ProfileViewModel : ViewModel(){
         UserRepo.unFollowProfile(username)
         Log.d("Profile", "unfollow req sent")
     }
-
-
-    fun getMyProfile() = viewModelScope.launch {
-            val response = UserRepo.getMyProfile()
-            _myProfile.postValue(response.body()?.user)
-    }
-   fun removeProfile() {
-       _myProfile.postValue(null)
-   }
 
 }

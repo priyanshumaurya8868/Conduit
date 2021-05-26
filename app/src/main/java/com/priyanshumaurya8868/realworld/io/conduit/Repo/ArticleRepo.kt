@@ -1,9 +1,11 @@
 package com.priyanshumaurya8868.realworld.io.conduit.Repo
 
 import com.priyanshumaurya8868.realworld.io.api.MyConduitClient
+import com.priyanshumaurya8868.realworld.io.api.model.entites.Article
 import com.priyanshumaurya8868.realworld.io.api.model.entites.Comment
 import com.priyanshumaurya8868.realworld.io.api.model.request.CommentRequest
 import com.priyanshumaurya8868.realworld.io.api.model.request.PublishArticleRequest
+import com.priyanshumaurya8868.realworld.io.api.model.request.UpdateArticleRequest
 
 object ArticleRepo {
     private val api = MyConduitClient.publicApi
@@ -37,4 +39,12 @@ object ArticleRepo {
         tag
     ) else authApi.getArticles(author, favourited, tag)
 
+    suspend fun updateArticle(slug: String, article: Article) =
+        authApi.updateArticle(slug, UpdateArticleRequest(article))
+
+    suspend fun deleteArticle(slug: String) =
+        authApi.deleteArticle(slug)
+
+    suspend fun deleteComment(slug: String,id  :Int) =
+        authApi.deleteComment(slug, id)
 }

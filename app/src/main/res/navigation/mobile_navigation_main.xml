@@ -74,8 +74,14 @@
         <action
             android:id="@+id/action_nav_article_to_nav_write_article"
             app:destination="@id/nav_write_article"
-            app:popUpToInclusive="true"
-            />
+            app:popUpToInclusive="true">
+            <argument android:name="@string/arg_article_key"
+                app:argType="com.priyanshumaurya8868.realworld.io.api.model.entites.GetArticle"
+                app:nullable="true"/>
+
+        </action>
+
+
     </fragment>
 
     <fragment
@@ -93,7 +99,7 @@
         <action
             android:id="@+id/action_nav_profile_to_nav_article"
             app:destination="@id/nav_article"
-            app:popUpTo="@id/nav_profile"/>
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_nav_profile_to_menu_nav_settings"
             app:destination="@id/menu_nav_settings"

@@ -25,7 +25,7 @@ import com.priyanshumaurya8868.realworld.io.conduit.extentions.loadImageInCircle
 class MainActivity : AppCompatActivity() {
     var navHeaderMainBinding : NavHeaderMainBinding? = null
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var authViewModel: AuthViewModel
+    lateinit var authViewModel: AuthViewModel
     private var temp: NavigationView? = null
     private lateinit var sharedPreferences: SharedPreferences
 

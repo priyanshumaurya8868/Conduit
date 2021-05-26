@@ -22,6 +22,7 @@
     <string name="your_settings">Your Settings</string>
     <string name="arg_article_id">ARGUMENT_ID</string>
     <string name="arg_username">USERNAME</string>
+    <string name="arg_article_key">ARGUMENT_ARTICLE</string>
     <string name="logout">Log Out</string>
     <string name="fab_lebel">New Article</string>
     <string name="publish_article_submit_btn">Publish Article</string>
@@ -39,5 +40,6 @@
     <string name="my_article">My Articles</string>
     <string name="update_article">update article</string>
     <string name="update_profile">update profile</string>
+
 
 </resources>

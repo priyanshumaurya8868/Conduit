@@ -41,7 +41,30 @@
                     android:textSize="@dimen/_30ssp"
                     tools:text="Title of the Article" />
 
+                <FrameLayout
+                    android:id="@+id/delete_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_gravity="end"
+                    android:background="@drawable/red_strock_trans_bc"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:padding="@dimen/_5sdp">
 
+
+                    <TextView
+                        android:id="@+id/delete_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/_2sdp"
+                        android:paddingEnd="@dimen/_2sdp"
+                        android:text="Delete"
+                        android:fontFamily="@font/source_sans_pro_semibold"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                        android:textColor="@color/red" />
+
+                </FrameLayout>
                 <LinearLayout
                     android:id="@+id/layout2"
                     android:layout_width="match_parent"
@@ -124,12 +147,13 @@
 
                         </LinearLayout>
 
+
+
                         <LinearLayout
                             android:id="@+id/follow_container"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/_10sdp"
-                            android:layout_marginRight="@dimen/_10sdp"
                             android:layout_toStartOf="@id/fav_container"
                             android:background="@drawable/grey_stroc_trans_bc"
                             android:gravity="center"
@@ -186,13 +210,9 @@
                                 android:text="@string/update_article"
                                 android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                                 android:textColor="@color/white" />
-
                         </LinearLayout>
                     </RelativeLayout>
-
-
                 </LinearLayout>
-
             </LinearLayout>
 
             <TextView
@@ -204,15 +224,68 @@
                 android:layout_alignParentEnd="true"
                 android:fontFamily="@font/source_sans_pro"
                 android:padding="@dimen/_10sdp"
-                android:minLines="15"
+                android:minLines="12"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                 tools:text="In English, both  and are articles, which combine with a noun to form a noun phrase. Articles typically specify the grammatical definiteness of the noun phrase, but in many languages, they carry additional grammatical information such as gender, number, and case. Articles are part of a broader category called determiners, which also include demonstratives, possessive determiners, and quantifiers. In linguistic interlinear glossing, articles are abbreviated as art." />
+
+            <RelativeLayout
+                android:id="@+id/tag_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/body_article_preview_tv"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp">
+
+                <View
+                    android:id="@+id/rv_container_line1"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@color/conduit_grey" />
+
+                <TextView
+                    android:id="@+id/tag_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/rv_container_line1"
+                    android:layout_toEndOf="@id/rv_container_line1"
+                    android:fontFamily="@font/source_sans_pro"
+                    android:paddingStart="@dimen/_5sdp"
+                    android:paddingEnd="@dimen/_5sdp"
+                    android:text="Tags"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                    android:textColor="@color/conduit_grey"
+                    android:textStyle="italic" />
+
+                <View
+                    android:id="@+id/rv_container_line2"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_alignBaseline="@id/rv_container_line1"
+                    android:layout_alignParentTop="true"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:layout_toEndOf="@id/tag_heading"
+                    android:background="@color/conduit_grey" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_tag"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tag_heading"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/tv_cmntsTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/body_article_preview_tv"
+                android:layout_below="@+id/tag_container"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="@dimen/_10sdp"
@@ -241,7 +314,9 @@
                     android:fontFamily="@font/source_sans_pro"
                     android:hint="@string/comnt_hint"
                     android:minLines="3"
-                    android:padding="@dimen/_10sdp"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     tools:text="this a comment of the post for testing lwts see how long it goes from here" />
 
@@ -249,7 +324,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/conduit_lite_grey"
-                    android:padding="@dimen/_3sdp">
+                    android:layout_marginTop="@dimen/_minus6sdp"
+                    android:padding="@dimen/_5sdp">
 
                     <ImageView
                         android:id="@+id/ivUser_pfp"

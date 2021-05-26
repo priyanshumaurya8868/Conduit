@@ -15,7 +15,7 @@
         android:padding="@dimen/_5sdp"
         android:text="@string/app_name"
         android:textColor="@color/conduit_green"
-        android:textSize="@dimen/_22ssp"
+        android:textSize="@dimen/_25ssp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,6 +34,7 @@
             android:paddingStart="@dimen/_8sdp"
             android:paddingEnd="@dimen/_8sdp"
             android:background="@drawable/green_strock_transparent_bc"
+            app:boxStrokeColor="@color/transparent"
             android:layout_marginBottom="@dimen/_10sdp"
             app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
             app:boxCornerRadiusBottomStart="@dimen/_10sdp"
@@ -56,6 +57,7 @@
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/_8sdp"
             android:paddingEnd="@dimen/_8sdp"
+            app:boxStrokeColor="@color/transparent"
             android:background="@drawable/green_strock_transparent_bc"
             android:layout_marginBottom="@dimen/_10sdp"
             app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
@@ -80,6 +82,7 @@
             app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
             android:paddingStart="@dimen/_8sdp"
             android:paddingEnd="@dimen/_8sdp"
+            app:boxStrokeColor="@color/transparent"
             android:background="@drawable/green_strock_transparent_bc"
             app:boxCornerRadiusBottomStart="@dimen/_5sdp"
             app:boxCornerRadiusTopEnd="@dimen/_5sdp"
@@ -103,10 +106,10 @@
             android:layout_gravity="end"
             android:layout_marginTop="@dimen/_10sdp"
             android:elevation="@dimen/_5sdp"
-            android:fontFamily="@font/source_sans_pro"
+            android:fontFamily="@font/source_sans_pro_semibold"
             android:padding="@dimen/_10sdp"
             android:text="@string/login"
-
+           android:textColor="@color/white"
             app:elevation="@dimen/_10sdp" />
 
 

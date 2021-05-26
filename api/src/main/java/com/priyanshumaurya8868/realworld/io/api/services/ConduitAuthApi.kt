@@ -2,6 +2,7 @@ package com.priyanshumaurya8868.realworld.io.api.services
 
 import com.priyanshumaurya8868.realworld.io.api.model.request.CommentRequest
 import com.priyanshumaurya8868.realworld.io.api.model.request.PublishArticleRequest
+import com.priyanshumaurya8868.realworld.io.api.model.request.UpdateArticleRequest
 import com.priyanshumaurya8868.realworld.io.api.model.request.UpdateUserRequest
 import com.priyanshumaurya8868.realworld.io.api.model.response.*
 import retrofit2.Response
@@ -73,4 +74,20 @@ interface ConduitAuthApi {
     ):Response<CommentsResponse>
 
 
+   @PUT("articles/{slug}")
+   suspend fun updateArticle(
+       @Path("slug")slug : String,
+       @Body updateArticleRequest: UpdateArticleRequest
+   ):Response<ArticleResponse>
+
+   @DELETE("articles/{slug}")
+   suspend fun deleteArticle(
+       @Path("slug")slug: String
+   )
+
+   @DELETE("articles/{slug}/comments/{id}")
+   suspend fun deleteComment(
+       @Path("slug")slug: String,
+       @Path("id")id:Int
+   )
 }

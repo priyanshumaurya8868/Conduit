@@ -113,6 +113,7 @@
         android:paddingTop="@dimen/_2sdp"
         android:paddingBottom="@dimen/_2sdp"
         android:paddingStart="@dimen/_10sdp"
+        android:elevation="@dimen/_3sdp"
         android:paddingEnd="@dimen/_10sdp"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="@dimen/_10sdp"

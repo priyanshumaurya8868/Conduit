@@ -53,4 +53,18 @@ class ArticleViewModel : ViewModel() {
         Log.d("FEED","unfavourite called")
     }
 
+    fun updateArticle(oldArticleSlug: String,newArticle: Article ) = viewModelScope.launch {
+        val  response =ArticleRepo.updateArticle( oldArticleSlug,newArticle)
+        if (response.isSuccessful)
+        _article.postValue(response.body()?.getArticle)
+    }
+
+    fun deleteArticle(slug: String) =viewModelScope.launch {
+        ArticleRepo.deleteArticle(slug)
+    }
+
+    fun deleteComment(slug: String,id: Int) = viewModelScope.launch {
+        ArticleRepo.deleteComment(slug, id)
+    }
+
 }
